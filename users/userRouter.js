@@ -35,15 +35,7 @@ router.get('/', (req, res) => {
 });
 
 router.get("/:id", validateUserId, (req, res) => {
-  const { id } = req.params;
-  Users
-    .getById(id)
-    .then(data => {
-      res.status(200).json({ data });
-    })
-    .catch(err => {
-      res.status(500).json({ error: "There was an error" });
-    });
+res.status(200).json(req.user);
 });
 
 router.get('/:id/posts', (req, res) => {
